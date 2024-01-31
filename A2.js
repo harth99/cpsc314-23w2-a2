@@ -14,6 +14,7 @@ const {
   renderer,
   scene,
   camera,
+  worldFrame,
 } = setup();
 
 // Used THREE.Clock for animation
