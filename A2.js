@@ -61,7 +61,7 @@ new SourceLoader().load(shaderFiles, function (shaders) {
   eyeMaterial.fragmentShader = shaders["glsl/eye.fs.glsl"];
 });
 
-// TODO: Load and place the Armadillo geometry in GLB format
+// Load and place the Armadillo geometry in GLB format
 loadAndPlaceGLB("glb/armadillo.glb", function (armadillo) {
   armadillo.scene.position.set(0.0, 5.3, -8.0);
   armadillo.scene.rotation.y = Math.PI;
@@ -80,7 +80,6 @@ const sphereLight = new THREE.PointLight(0xffffff, 50.0, 100);
 scene.add(sphereLight);
 
 // Example for an eye ball
-// TODO: Create two eye ball meshes from the same geometry
 const eyeGeometry = new THREE.SphereGeometry(1, 32, 32);
 const eyeScale = 0.5;
 
@@ -102,6 +101,9 @@ rightEyeSocket.add(rightEye);
 
 scene.add(leftEyeSocket);
 scene.add(rightEyeSocket);
+
+leftEye.lookAt(sphereLight.position);
+rightEye.lookAt(sphereLight.position);
 
 // Listen to keyboard events.
 const keyboard = new THREEx.KeyboardState();
@@ -132,6 +134,8 @@ function checkKeyboard() {
 function update() {
   // TODO: make neccesary changes to implement gazing, the armadillo waving its hand, etc.
   checkKeyboard();
+  leftEye.lookAt(sphereLight.position);
+  rightEye.lookAt(sphereLight.position);
 
   // Requests the next update call, this creates a loop
   requestAnimationFrame(update);
