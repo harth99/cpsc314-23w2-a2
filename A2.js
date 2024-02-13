@@ -81,7 +81,7 @@ scene.add(sphereLight);
 
 // Example for an eye ball
 // TODO: Create two eye ball meshes from the same geometry
-const eyeGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+const eyeGeometry = new THREE.SphereGeometry(1, 32, 32);
 const eyeScale = 0.5;
 
 const leftEyeSocket = new THREE.Object3D();
@@ -99,7 +99,6 @@ rightEyeSocket.position.copy(rightEyeSocketPos);
 const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
 rightEye.scale.copy(new THREE.Vector3(eyeScale, eyeScale, eyeScale));
 rightEyeSocket.add(rightEye);
-
 
 scene.add(leftEyeSocket);
 scene.add(rightEyeSocket);
