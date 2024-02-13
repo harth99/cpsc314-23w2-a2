@@ -81,10 +81,11 @@ scene.add(sphereLight);
 
 // Example for an eye ball
 // TODO: Create two eye ball meshes from the same geometry
-const eyeGeometry = new THREE.SphereGeometry(1.0, 32, 32);
+const eyeGeometry = new THREE.SphereGeometry(0.5, 32, 32);
 const eyeScale = 0.5;
 
 const leftEyeSocket = new THREE.Object3D();
+// const leftEyeSocketPos = new THREE.Vector3(0.7, 12, -4.75);
 const leftEyeSocketPos = new THREE.Vector3(0, 4, 0);
 leftEyeSocket.position.copy(leftEyeSocketPos);
 
@@ -92,7 +93,16 @@ const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
 leftEye.scale.copy(new THREE.Vector3(eyeScale, eyeScale, eyeScale));
 leftEyeSocket.add(leftEye);
 
+const rightEyeSocket = new THREE.Object3D();
+const rightEyeSocketPos = new THREE.Vector3(-0.7, 12, -4.75);
+rightEyeSocket.position.copy(rightEyeSocketPos);
+
+const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+rightEye.scale.copy(new THREE.Vector3(eyeScale, eyeScale, eyeScale));
+rightEyeSocket.add(rightEye);
+
 scene.add(leftEyeSocket);
+scene.add(rightEyeSocket);
 
 // Listen to keyboard events.
 const keyboard = new THREEx.KeyboardState();
