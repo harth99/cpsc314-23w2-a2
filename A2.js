@@ -94,7 +94,8 @@ leftEye.scale.copy(new THREE.Vector3(eyeScale, eyeScale, eyeScale));
 leftEyeSocket.add(leftEye);
 
 const rightEyeSocket = new THREE.Object3D();
-const rightEyeSocketPos = new THREE.Vector3(-0.7, 12, -4.75);
+// const rightEyeSocketPos = new THREE.Vector3(-0.7, 12, -4.75);
+const rightEyeSocketPos = new THREE.Vector3(4, 4, 0);
 rightEyeSocket.position.copy(rightEyeSocketPos);
 
 const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
